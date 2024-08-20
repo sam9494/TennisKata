@@ -82,4 +82,4 @@ artifacts/
 _ReSharper*/ 
 
 #cache
-.TennisKata/obj/
+TennisKata/obj/Debug/net8.0/
