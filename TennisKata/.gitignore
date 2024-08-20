@@ -80,3 +80,6 @@ artifacts/
 
 # Resharper
 _ReSharper*/ 
+
+#cache
+.TennisKata/obj
