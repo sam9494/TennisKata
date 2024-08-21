@@ -7,7 +7,9 @@ return;
 
 static void Main()
 {
-    var tennis = new Tennis("Sam1", "Sam2");
+    var arthur = new Player("Arthur");  
+    var heng = new Player("Heng");  
+    var tennis = new Tennis(arthur, heng);
 
     var score = tennis.Score();
     Console.WriteLine(score);

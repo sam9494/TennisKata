@@ -2,17 +2,13 @@
 
 public class Tennis
 {
-    private readonly string _playerOneName;
-    private int _playerOneScore;
-    private int _playerTwoScore;
-    private readonly string _playerTwoName;
+    private readonly Player _server;
+    private readonly Player _receiver;
 
-    public Tennis(string playerOneName, string playerTwoName)
+    public Tennis(Player server, Player receiver)
     {
-        _playerOneName = playerOneName;
-        _playerTwoName = playerTwoName;
-        _playerOneScore = 0;
-        _playerTwoScore = 0;
+        _server = server;
+        _receiver = receiver;
     }
     public string Score()
     {
@@ -25,12 +21,12 @@ public class Tennis
 
     public void PlayerOneScore()
     {
-        _playerOneScore++;
+        _server.Score++;
     }
     
     public void PlayerTwoScore()
     {
-        _playerTwoScore++; 
+        _receiver.Score++; 
     }
 
 }
