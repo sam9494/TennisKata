@@ -1,11 +1,11 @@
 ﻿namespace TennisKata;
 
-public class Tennis
+public class TennisGame
 {
     private readonly Player _server;
     private readonly Player _receiver;
 
-    public Tennis(Player server, Player receiver)
+    public TennisGame(Player server, Player receiver)
     {
         _server = server;
         _receiver = receiver;

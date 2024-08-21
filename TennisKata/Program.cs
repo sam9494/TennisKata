@@ -9,8 +9,8 @@ static void Main()
 {
     var arthur = new Player("Arthur");  
     var heng = new Player("Heng");  
-    var tennis = new Tennis(arthur, heng);
+    var tennisGame = new TennisGame(arthur, heng);
 
-    var score = tennis.Score();
+    var score = tennisGame.Score();
     Console.WriteLine(score);
 }
