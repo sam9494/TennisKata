@@ -19,7 +19,7 @@ public class ScoreTests
     }
 
     [Fact]
-    public void GivenPlayersScoreLessThanThree_WhenPlayerScores_ThenScoreShouldIncrease()
+    public void GivenPlayersScoreLessThanFour_WhenPlayerScores_ThenScoreShouldIncrease()
     {
         GivenPlayersScore(0,0);
         WhenPlayerScores(_scoringPlayer);
@@ -43,7 +43,7 @@ public class ScoreTests
     }
 
     [Fact]
-    public void GivenScoringPlayerScoreMoreThanThreeAndLeadLessThanTwo_WhenAddPlayerScore_ThenScoreShouldBeIncrease()
+    public void GivenPlayerScoreMoreThanThreeAndLeadLessThanTwo_WhenPlayerScores_ThenScoreShouldBeIncrease()
     {
         GivenPlayersScoreByLead(4,0);
         WhenPlayerScores(_scoringPlayer);
@@ -63,7 +63,7 @@ public class ScoreTests
     }
 
     [Fact]
-    public void GivenScoringPlayerScoreMoreThanThreeAndLeadMoreThanTwo_WhenPlayerScores_ThenScoreShouldNotIncrease()
+    public void GivenPlayerScoreMoreThanThreeAndLeadMoreThanOne_WhenPlayerScores_ThenScoreShouldNotIncrease()
     {
         GivenPlayersScoreByLead(4,4);
         WhenPlayerScores(_scoringPlayer);
