@@ -24,6 +24,23 @@ public class ScoreTests
         GivenPlayersScore(0,0);
         WhenPlayerScores(_scoringPlayer);
         ThenPlayerScoreShouldBe(_scoringPlayer, 1);
+                
+        GivenPlayersScore(3,0);
+        WhenPlayerScores(_scoringPlayer);
+        ThenPlayerScoreShouldBe(_scoringPlayer, 4);
+        
+        GivenPlayersScore(3,1);
+        WhenPlayerScores(_scoringPlayer);
+        ThenPlayerScoreShouldBe(_scoringPlayer, 4);
+        
+        GivenPlayersScore(3,2);
+        WhenPlayerScores(_scoringPlayer);
+        ThenPlayerScoreShouldBe(_scoringPlayer, 4);
+        
+        GivenPlayersScore(3,3);
+        WhenPlayerScores(_scoringPlayer);
+        ThenPlayerScoreShouldBe(_scoringPlayer, 4);
+    }
     }
 
     private void ThenPlayerScoreShouldBe(Player player, int expectedScore)
