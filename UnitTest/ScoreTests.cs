@@ -41,7 +41,33 @@ public class ScoreTests
         WhenPlayerScores(_scoringPlayer);
         ThenPlayerScoreShouldBe(_scoringPlayer, 4);
     }
+
+    [Fact]
+    public void GivenScoringPlayerScoreMoreThanThreeAndLeadLessThanTwo_WhenAddPlayerScore_ThenScoreShouldBeIncrease()
+    {
+        GivenPlayersScoreByLead(4,0);
+        WhenPlayerScores(_scoringPlayer);
+        ThenPlayerScoreShouldBe(_scoringPlayer, 5);
+        
+        GivenPlayersScoreByLead(4,1);
+        WhenPlayerScores(_scoringPlayer);
+        ThenPlayerScoreShouldBe(_scoringPlayer, 5);
+        
+        GivenPlayersScoreByLead(8,0);
+        WhenPlayerScores(_scoringPlayer);
+        ThenPlayerScoreShouldBe(_scoringPlayer, 9);
+        
+        GivenPlayersScoreByLead(8,1);
+        WhenPlayerScores(_scoringPlayer);
+        ThenPlayerScoreShouldBe(_scoringPlayer, 9);
     }
+
+    private void GivenPlayersScoreByLead(int playerScore, int leadScore)
+    {
+        _scoringPlayer.Score = playerScore;
+        _opponentPlayer.Score = playerScore - leadScore;
+    }
+    
 
     private void ThenPlayerScoreShouldBe(Player player, int expectedScore)
     {
