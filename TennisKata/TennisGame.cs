@@ -4,11 +4,13 @@ public class TennisGame
 {
     private readonly Player _server;
     private readonly Player _receiver;
+    private Scorer _scorer;
 
-    public TennisGame(Player server, Player receiver)
+    public TennisGame(Player server, Player receiver,Scorer scorer)
     {
         _server = server;
         _receiver = receiver;
+        _scorer = scorer;
     }
     public string Score()
     {
@@ -18,15 +20,4 @@ public class TennisGame
         //4. 勝出時 輸出為 Player Name Win, 例：Sam Win
         return "Love All";
     }
-
-    public void PlayerOneScore()
-    {
-        _server.Score++;
-    }
-    
-    public void PlayerTwoScore()
-    {
-        _receiver.Score++; 
-    }
-
 }
