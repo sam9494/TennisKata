@@ -24,114 +24,15 @@ public class Tennis
         // 甚麼時候是賽末點，或有可能無限 adv 
         // 比分可能無上限?
 
+        //平手條件
         if (_playerOneScore == _playerTwoScore)
         {
-            /*if (_playerOneScore == 0)
-                return "Love All";
-
-            else if (_playerOneScore == 1)
-                return "Fifteen All";
-
-            else if (_playerOneScore == 2)
-                return "Thirty All";
-
-            else return "Deuce";*/
-
-            return _playerOneScore >= 3 
-                ? "Deuce" 
+            return _playerOneScore >= 3
+                ? "Deuce"
                 : $"{ScoreMeaning(_playerOneScore)} All";
         }
 
-        /*//選手二號 0 分的條件
-        if (_playerOneScore > _playerTwoScore && _playerTwoScore == 0)
-        {
-            if (_playerOneScore == 1)
-                return "Fifteen Love";
-
-            else if (_playerOneScore == 2)
-                return "Thirty Love";
-
-            else if (_playerOneScore == 3)
-                return "Forty Love";
-
-            else return $"{_playerOneName} Win!";
-        }
-
-        //選手二號 1 分的條件
-        if (_playerOneScore > _playerTwoScore && _playerTwoScore == 1)
-        {
-            if (_playerOneScore == 2)
-                return "Thirty Fifteen";
-
-            else if (_playerOneScore == 3)
-                return "Forty Fifteen";
-
-            else return $"{_playerOneName} Win!";
-        }
-
-        //選手二號 2 分的條件
-        if (_playerOneScore > _playerTwoScore && _playerTwoScore == 2)
-        {
-            if (_playerOneScore == 3)
-                return "Forty Thirty";
-
-            else return $"{_playerOneName} Win!";
-        }
-
-        //選手二號 3 分或以上的條件
-        if (_playerOneScore > _playerTwoScore && _playerTwoScore >= 3)
-        {
-            if (_playerOneScore - _playerTwoScore == 1)
-                return $"{_playerOneName} Adv";
-
-            else return $"{_playerOneName} Win!";
-        }
-
-        //選手一號 0 分的條件
-        if (_playerTwoScore > _playerOneScore && _playerOneScore == 0)
-        {
-            if (_playerTwoScore == 1)
-                return "Love Fifteen";
-
-            else if (_playerTwoScore == 2)
-                return "Love Thirty";
-
-            else if (_playerTwoScore == 3)
-                return "Love Forty";
-
-            else return $"{_playerTwoName} Win!";
-        }
-
-        //選手一號 1 分的條件
-        if (_playerTwoScore > _playerOneScore && _playerOneScore == 1)
-        {
-            if (_playerTwoScore == 2)
-                return "Fifteen Thirty";
-
-            else if (_playerTwoScore == 3)
-                return "Fifteen Forty";
-
-            else return $"{_playerTwoName} Win!";
-        }
-
-        //選手一號 2 分的條件
-        if (_playerTwoScore > _playerOneScore && _playerOneScore == 2)
-        {
-            if (_playerTwoScore == 3)
-                return "Thirty Forty";
-
-            else return $"{_playerTwoName} Win!";
-        }
-
-        選手一號 3 分或以上的條件
-        if (_playerTwoScore > _playerOneScore && _playerOneScore >= 3)
-        {
-            if (_playerTwoScore - _playerOneScore == 1)
-                return $"{_playerTwoName} Adv";
-
-            else return $"{_playerTwoName} Win!";
-        }*/
-
+        //賽末點或贏家條件
         if (_playerOneScore >= 4 || _playerTwoScore >= 4)
         {
             var scoreResult = _playerOneScore - _playerTwoScore;
@@ -149,7 +50,11 @@ public class Tennis
                 return $"{_playerTwoName} Win!";
         }
 
-        return $"{ScoreMeaning(_playerOneScore)} {ScoreMeaning(_playerTwoScore)}";
+        //未滿 4 分直接輸出比分條件
+        if (_playerOneScore < 4 && _playerTwoScore < 4)
+            return $"{ScoreMeaning(_playerOneScore)} {ScoreMeaning(_playerTwoScore)}";
+
+        return "Love All";
     }
 
     public void PlayerOneScore()
