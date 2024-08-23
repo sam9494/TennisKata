@@ -20,9 +20,6 @@ public class Tennis
         //2. 分數表達必須是文字例如Fifteen Forty 而非15：40 
         //3. 賽末點時 輸出為 Player Name Adv, 例：Sam Adv
         //4. 勝出時 輸出為 Player Name Win, 例：Sam Win
-        // 從分數是多少 = 甚麼條件去思考
-        // 甚麼時候是賽末點，或有可能無限 adv 
-        // 比分可能無上限?
 
         //平手條件
         if (_playerOneScore == _playerTwoScore)
