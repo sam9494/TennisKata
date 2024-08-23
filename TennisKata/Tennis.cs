@@ -29,16 +29,12 @@ public class Tennis
             {
                 case 0:
                     return "Love All";
-                    break;
                 case 1:
                     return "Fifteen All";
-                    break;
                 case 2:
                     return "Thirty All";
-                    break;
                 default:
                     return "Deuce";
-                    break;
             };
         };
         // 進到deuce後
@@ -52,8 +48,8 @@ public class Tennis
         }
 
         // 計分
-        string score1 = getScore(_playerOneScore,_playerOneName);
-        string score2 = getScore(_playerTwoScore, _playerTwoName);
+        string score1 = GetScore(_playerOneScore,_playerOneName);
+        string score2 = GetScore(_playerTwoScore, _playerTwoName);
         if (_playerOneScore == 4)
         {
             return $"{_playerOneName} Win";
@@ -68,25 +64,20 @@ public class Tennis
         }
 
     }
-    // 不同比分時所顯示的字串
-    public string getScore(int score, string name) 
+    // 各比分時所顯示的字串
+    public string GetScore(int score, string name) 
     {
         switch (score) {
             case 0:
                 return "Love";
-                break;
             case 1:
                 return "Fifteen";
-                break;
             case 2:
                 return "Thirty";
-                break;
             case 3:
                 return "Forty";
-                break;
             default:
                 return "";
-
 
         }
     }
