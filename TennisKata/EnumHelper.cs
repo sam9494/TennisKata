@@ -6,7 +6,6 @@ public class EnumHelper
     {
         ScoreName? scoreName = score switch
         {
-            4 => ScoreName.Game,
             3 => ScoreName.Forty,
             2 => ScoreName.Thirty,
             1 => ScoreName.Fifteen,
