@@ -6,26 +6,47 @@ public class Tennis
 {
     private readonly Player _playerOne;
     private readonly Player _playerTwo;
-    private readonly Scorer _scorer;
+    private int _leadScore;
+    private int _highestScore;
 
     public Tennis(string playerOneName, string playerTwoName)
     {
         _playerOne = new Player(playerOneName);
         _playerTwo = new Player(playerTwoName);
-        _scorer = new Scorer();
+        _leadScore = 0;
+        _highestScore = 0;
     }
 
     public void PlayerOneScore()
     {
-        _scorer.AddPlayerScore(_playerOne, _playerTwo);
-        Console.WriteLine(Score());
+        var isGameOver = CheckGameOver();
+        if (isGameOver) return;
+        _playerOne.Score++;
+        UpdateLeadAndHightestScore();
     }
     
     public void PlayerTwoScore()
     {
-        _scorer.AddPlayerScore(_playerTwo, _playerOne);
-        Console.WriteLine(Score());
+        var isGameOver = CheckGameOver();
+        if(isGameOver) return;
+        _playerTwo.Score++;
+        UpdateLeadAndHightestScore();
     }
+
+    private void UpdateLeadAndHightestScore()
+    {
+        _leadScore= Math.Abs(_playerOne.Score - _playerTwo.Score);
+        _highestScore = Math.Max(_playerOne.Score, _playerTwo.Score);
+    }
+
+    private bool CheckGameOver()
+    {
+        var isGameOver = _leadScore >= 2 && _highestScore >= 4;
+        if (isGameOver) Console.WriteLine("Game Over.");
+        return isGameOver;
+    }
+
+    
     public string Score()
     {
         //1. 輸出必須為網球分數 例：1:0 => Fifteen Love 
