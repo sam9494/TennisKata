@@ -8,6 +8,8 @@ public class Tennis
     private readonly Player _playerTwo;
     private int _leadScore;
     private int _highestScore;
+    private bool _isGameOver;
+    private string _currentScoreNameOfPlayers;
 
     public Tennis(string playerOneName, string playerTwoName)
     {
@@ -15,35 +17,36 @@ public class Tennis
         _playerTwo = new Player(playerTwoName);
         _leadScore = 0;
         _highestScore = 0;
+        _currentScoreNameOfPlayers = "Love all";
+        _isGameOver = false;
     }
 
     public void PlayerOneScore()
     {
-        var isGameOver = CheckGameOver();
-        if (isGameOver) return;
+        if (_isGameOver) return;
         _playerOne.Score++;
-        UpdateLeadAndHightestScore();
+        UpdateLeadAndHighestScore();
+        CheckGameOver();
     }
     
     public void PlayerTwoScore()
     {
-        var isGameOver = CheckGameOver();
-        if(isGameOver) return;
+        if(_isGameOver) return;
         _playerTwo.Score++;
-        UpdateLeadAndHightestScore();
+        UpdateLeadAndHighestScore();
+        CheckGameOver();
     }
 
-    private void UpdateLeadAndHightestScore()
+    private void UpdateLeadAndHighestScore()
     {
         _leadScore= Math.Abs(_playerOne.Score - _playerTwo.Score);
         _highestScore = Math.Max(_playerOne.Score, _playerTwo.Score);
     }
 
-    private bool CheckGameOver()
+    private void CheckGameOver()
     {
-        var isGameOver = _leadScore >= 2 && _highestScore >= 4;
-        if (isGameOver) Console.WriteLine("Game Over.");
-        return isGameOver;
+        _isGameOver = _leadScore >= 2 && _highestScore >= 4;
+        if (_isGameOver) Console.WriteLine("Game Over.");
     }
 
     
@@ -55,49 +58,63 @@ public class Tennis
         //4. 勝出時 輸出為 Player Name Win, 例：Sam Win
         
         // code small: magic number
-        // 應有個 變數/方法 提升閱讀性，以抽象命名替代實作細節
+        // 應有個 變數/方法 提升閱讀性: 以抽象命名替代實作細節
         // 如果是 leadScore >= 2 而不是 leadScore == 2，閱讀者會推測 2 以上用在哪，不明確
-
-        var currentScoreNameOfPlayers ="";
-
+        
         var isWin = _highestScore >= 4 && _leadScore == 2;
-        if (isWin)
-        {
-            var leadPlayer = _playerOne.Score > _playerTwo.Score ? _playerOne : _playerTwo;
-            currentScoreNameOfPlayers = $"{leadPlayer.Name} {LeadStatus.Win}.";
-        }
+        if (isWin) UpdateScoreNameWin();
         
         var isAdv = _highestScore >= 4 && _leadScore == 1;
-        if (isAdv)
-        {
-            var leadPlayer = _playerOne.Score > _playerTwo.Score ? _playerOne : _playerTwo;
-            currentScoreNameOfPlayers = $"{leadPlayer.Name} {LeadStatus.Adv}.";
-        }
-        
+        if (isAdv) UpdateScoreNameAdv();
         
         var isDeuce = _highestScore >= 3 && _leadScore == 0;
-        if (isDeuce) currentScoreNameOfPlayers = $"{LeadStatus.Deuce}.";
-        
+        if (isDeuce) UpdateScoreNameDeuce();
         
         var isAll = _highestScore <= 2 && _leadScore == 0;
-        if (isAll)
-        {
-            var scoreNameOfScoreEqual = EnumHelper.GetScoreName(_highestScore);
-            currentScoreNameOfPlayers = scoreNameOfScoreEqual == null
-                                        ? "ScoreName is Null, Please Check Values"
-                                        : $"{scoreNameOfScoreEqual} all.";
-        }
+        if (isAll) UpdateScoreNameAll();
         
-        var isOnlyScores = _highestScore <= 2 && _leadScore != 0;
-        if (isOnlyScores)
-        {
-            var playerOneScoreName = EnumHelper.GetScoreName(_playerOne.Score);
-            var playerTwoScoreName = EnumHelper.GetScoreName(_playerTwo.Score);
-            currentScoreNameOfPlayers = playerOneScoreName == null && playerTwoScoreName == null
-                                        ? "ScoreName is Null, Please Check Values"
-                                        : $"{playerOneScoreName} {playerTwoScoreName}.";
-        }
+        var isOnlyScore = _highestScore <= 2 && _leadScore != 0;
+        if (isOnlyScore) UpdateScoreNameOnlyScore();
 
-        return currentScoreNameOfPlayers;
+        
+        return _currentScoreNameOfPlayers;
+    }
+
+    private void UpdateScoreNameOnlyScore()
+    {
+        var playerOneScoreName = EnumHelper.GetScoreName(_playerOne.Score);
+        var playerTwoScoreName = EnumHelper.GetScoreName(_playerTwo.Score);
+        
+        _currentScoreNameOfPlayers = playerOneScoreName == null && playerTwoScoreName == null
+            ? "ScoreName is Null, Please Check Values"
+            : $"{playerOneScoreName} {playerTwoScoreName}.";
+    }
+
+    private void UpdateScoreNameAll()
+    {
+        var scoreNameOfScoreEqual = EnumHelper.GetScoreName(_highestScore);
+        
+        _currentScoreNameOfPlayers = scoreNameOfScoreEqual == null
+            ? "ScoreName is Null, Please Check Values"
+            : $"{scoreNameOfScoreEqual} {ScoreStatus.All}.";
+    }
+
+    private void UpdateScoreNameDeuce()
+    {
+        _currentScoreNameOfPlayers = $"{ScoreStatus.Deuce}.";
+    }
+
+    private void UpdateScoreNameAdv()
+    {
+        var leadPlayer = _playerOne.Score > _playerTwo.Score ? _playerOne : _playerTwo;
+        
+        _currentScoreNameOfPlayers = $"{leadPlayer.Name} {ScoreStatus.Adv}.";
+    }
+
+    private void UpdateScoreNameWin()
+    {
+        var leadPlayer = _playerOne.Score > _playerTwo.Score ? _playerOne : _playerTwo;
+        
+        _currentScoreNameOfPlayers = $"{leadPlayer.Name} {ScoreStatus.Win}.";
     }
 }

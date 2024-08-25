@@ -1,7 +1,8 @@
 ﻿namespace TennisKata;
 
-public enum LeadStatus
+public enum ScoreStatus
 {
+    All,
     Deuce,
     Adv,
     Win
