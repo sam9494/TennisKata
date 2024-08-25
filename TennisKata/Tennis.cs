@@ -64,9 +64,10 @@ public class Tennis
         // code small: magic number
         // 應有個 變數/方法 提升閱讀性: 以抽象命名替代實作細節
         // 如果是 leadScore >= 2 而不是 leadScore == 2，閱讀者會推測 2 以上用在哪，不明確
+        // 4:1 或 4:0 時用 leadScore == 2 會漏檢核，應使用 leadScore >= 2
         if(!_isNeedUpdateScoreName) return _currentScoreNameOfPlayers;
         
-        var isWin = _highestScore >= 4 && _leadScore == 2;
+        var isWin = _highestScore >= 4 && _leadScore >= 2;
         if (isWin) UpdateScoreNameWin();
         
         var isAdv = _highestScore >= 4 && _leadScore == 1;
