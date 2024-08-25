@@ -1,4 +1,6 @@
-﻿namespace TennisKata;
+﻿using TennisKata.Helper;
+
+namespace TennisKata;
 
 public class Tennis
 {

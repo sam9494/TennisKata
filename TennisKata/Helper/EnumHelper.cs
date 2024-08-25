@@ -1,6 +1,6 @@
-﻿namespace TennisKata;
+﻿namespace TennisKata.Helper;
 
-public class EnumHelper
+public static class EnumHelper
 {
     public static ScoreName? GetScoreName(int score)
     {
