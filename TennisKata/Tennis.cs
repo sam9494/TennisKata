@@ -10,6 +10,7 @@ public class Tennis
     private int _highestScore;
     private bool _isGameOver;
     private string _currentScoreNameOfPlayers;
+    private bool _isNeedUpdateScoreName;
 
     public Tennis(string playerOneName, string playerTwoName)
     {
@@ -19,12 +20,14 @@ public class Tennis
         _highestScore = 0;
         _currentScoreNameOfPlayers = "Love all";
         _isGameOver = false;
+        _isNeedUpdateScoreName = false;
     }
 
     public void PlayerOneScore()
     {
         if (_isGameOver) return;
         _playerOne.Score++;
+        _isNeedUpdateScoreName = true;
         UpdateLeadAndHighestScore();
         CheckGameOver();
     }
@@ -33,6 +36,7 @@ public class Tennis
     {
         if(_isGameOver) return;
         _playerTwo.Score++;
+        _isNeedUpdateScoreName = true;
         UpdateLeadAndHighestScore();
         CheckGameOver();
     }
@@ -60,6 +64,7 @@ public class Tennis
         // code small: magic number
         // 應有個 變數/方法 提升閱讀性: 以抽象命名替代實作細節
         // 如果是 leadScore >= 2 而不是 leadScore == 2，閱讀者會推測 2 以上用在哪，不明確
+        if(!_isNeedUpdateScoreName) return _currentScoreNameOfPlayers;
         
         var isWin = _highestScore >= 4 && _leadScore == 2;
         if (isWin) UpdateScoreNameWin();
@@ -76,6 +81,7 @@ public class Tennis
         var isOnlyScore = _highestScore <= 2 && _leadScore != 0;
         if (isOnlyScore) UpdateScoreNameOnlyScore();
 
+        _isNeedUpdateScoreName = false;
         
         return _currentScoreNameOfPlayers;
     }
