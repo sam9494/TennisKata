@@ -15,8 +15,9 @@ static void Main()
     tennis.PlayerOneScore();
     tennis.PlayerTwoScore();
     tennis.PlayerTwoScore();
-    tennis.PlayerOneScore();
-    tennis.PlayerOneScore();
+    tennis.PlayerTwoScore();
+    //tennis.PlayerOneScore();
+    //tennis.PlayerOneScore();
 
     var score = tennis.Score();
     Console.WriteLine(score);
