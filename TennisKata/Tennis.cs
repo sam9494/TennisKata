@@ -20,7 +20,7 @@ public class Tennis
     {
         //1. 輸出必須為網球分數，例：1:0 => Fifteen Love 
         //2. 分數表達必須是文字，例: Fifteen Forty 而非 15：40 
-        //3. 賽末點(gamepoint)時，輸出為 PlayerName Adv, 例：Sam Adv
+        //3. 賽末點(game point)時，輸出為 PlayerName Adv, 例：Sam Adv
         //4. 勝出時輸出為 PlayerName Win, 例：Sam Win
 
         // 同分
@@ -31,10 +31,11 @@ public class Tennis
 
         // 不同分 win
         if ((_playerOneScore >= 4 || _playerTwoScore >= 4) && Math.Abs(_playerOneScore - _playerTwoScore) == 2) // 勝利條件: 4分以上且比對手多2分
+        // A || B && C => A || (B && C) => X
         {
             return (_playerOneScore > _playerTwoScore) ? $"{_playerOneName} Win" : $"{_playerTwoName} Win";
         }
-        // 不同分 gamepoint
+        // 不同分 game point
         else if (_playerOneScore >= 3 && _playerTwoScore >= 3) // 雙方皆得3分 => Deuce，Advantage放在win後面判斷否則通通吃到Adv的判定
         {
             return (_playerOneScore > _playerTwoScore) ? $"{_playerOneName} Adv" : $"{_playerTwoName} Adv";
@@ -46,7 +47,9 @@ public class Tennis
         }
     }
 
-    public string GetScoreDescription(int score) //? 什麼時候用public 像這裡的轉換是for這個class才會使用到，那是不是用private就好
+    private string GetScoreDescription(int score)
+        //? 什麼時候用public 像這裡的轉換是for這個class才會使用到，那是不是用private就好
+        //? static
     {
         switch (score)
         {

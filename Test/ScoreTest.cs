@@ -6,10 +6,7 @@ namespace Test;
 
 public class ScoreTest
 {
-    
-    // 同分
     [Theory]
-    // Arrange 初始化
     // 同分
     [InlineData(0, 0, "Love All")]
     [InlineData(1, 1, "Fifteen All")]
@@ -34,24 +31,25 @@ public class ScoreTest
     [InlineData(0, 2, "Love Thirty")]
     [InlineData(0, 3, "Love Forty")]
 
-    public void Score_SameScores(int playerOneScore, int playerTwoScore, string expectedScoreDescription)
+    public void Score_InputPlayerScores_ScoreDescription(int playerOneScore, int playerTwoScore, string expectedScoreDescription)
     {
-        // Act 執行方法、行為、操作並取得結果
+        // Arrange 初始化: 建立Tennis物件並給予玩家分數。
         var tennis = new Tennis("Sam1", "Sam2");
-        
-        for (int i = 0; i < playerOneScore; i++)
+
+        for (var i = 0; i < playerOneScore; i++)
         {
-            tennis.PlayerOneScore();
+            tennis.PlayerOneScore(); // PlayerOneScore++
         }
 
-        for (int i = 0; i < playerTwoScore; i++)
+        for (var i = 0; i < playerTwoScore; i++)
         {
-            tennis.PlayerTwoScore();
+            tennis.PlayerTwoScore(); // PlayerTwoScore++
         }
 
+        // Act 執行方法、行為、操作並取得結果
         var result = tennis.Score();
 
-        // Assert 驗證
+        // Assert 驗證結果是否如預期
         Assert.Equal(expectedScoreDescription, result);
     }
 }
