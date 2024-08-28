@@ -7,12 +7,17 @@ namespace TennisGameTest
     {
         private Tennis _tennis;
 
+        public TennisGameTest()
+        {
+            _tennis = new Tennis("PlayerOne", "PlayerTwo");
+        }
+
         private void GivenTennisGamePlayers(string playerOneName = "PlayerOne", string playerTwoName = "PlayerTwo")
         {
             _tennis = new Tennis(playerOneName, playerTwoName);
         }
 
-        private string ShouldScoreMeanigBe ()
+        private string ShouldScoreMeaningBe ()
         {
             return _tennis.Score();
         }
@@ -21,9 +26,9 @@ namespace TennisGameTest
         public void ShouldBeLoveAll_WhenBothPlayers_AreUnscored()
         {
             GivenTennisGamePlayers();
-            ShouldScoreMeanigBe();
+            //ShouldScoreMeaningBe();
 
-            Assert.Equal("Love All", ShouldScoreMeanigBe());
+            Assert.Equal("Love All", ShouldScoreMeaningBe());
         }
 
         [Fact]
@@ -31,9 +36,9 @@ namespace TennisGameTest
         {
             GivenTennisGamePlayers();
             SetPlayerScore(1, 0);
-            ShouldScoreMeanigBe();
+            ShouldScoreMeaningBe();
 
-            Assert.Equal("Fifteen Love", ShouldScoreMeanigBe());
+            Assert.Equal("Fifteen Love", ShouldScoreMeaningBe());
         }
 
         [Fact]
@@ -41,9 +46,9 @@ namespace TennisGameTest
         {
             GivenTennisGamePlayers();
             SetPlayerScore(2, 0);
-            ShouldScoreMeanigBe();
+            ShouldScoreMeaningBe();
 
-            Assert.Equal("Thirty Love", ShouldScoreMeanigBe());
+            Assert.Equal("Thirty Love", ShouldScoreMeaningBe());
         }
 
         [Fact]
@@ -51,9 +56,9 @@ namespace TennisGameTest
         {
             GivenTennisGamePlayers();
             SetPlayerScore(2, 1);
-            ShouldScoreMeanigBe();
+            ShouldScoreMeaningBe();
 
-            Assert.Equal("Thirty Fifteen", ShouldScoreMeanigBe());
+            Assert.Equal("Thirty Fifteen", ShouldScoreMeaningBe());
         }
 
         [Fact]
@@ -61,9 +66,9 @@ namespace TennisGameTest
         {
             GivenTennisGamePlayers();
             SetPlayerScore(2, 2);
-            ShouldScoreMeanigBe();
+            ShouldScoreMeaningBe();
 
-            Assert.Equal("Thirty All", ShouldScoreMeanigBe());
+            Assert.Equal("Thirty All", ShouldScoreMeaningBe());
         }
 
         [Fact]
@@ -71,9 +76,9 @@ namespace TennisGameTest
         {
             GivenTennisGamePlayers();
             SetPlayerScore(3,2);
-            ShouldScoreMeanigBe();
+            ShouldScoreMeaningBe();
 
-            Assert.Equal("Forty Thirty", ShouldScoreMeanigBe());
+            Assert.Equal("Forty Thirty", ShouldScoreMeaningBe());
         }
 
         [Fact]
@@ -81,9 +86,9 @@ namespace TennisGameTest
         {
             GivenTennisGamePlayers();
             SetPlayerScore(3, 3);
-            ShouldScoreMeanigBe();
+            ShouldScoreMeaningBe();
 
-            Assert.Equal("Deuce", ShouldScoreMeanigBe());
+            Assert.Equal("Deuce", ShouldScoreMeaningBe());
         }
 
         [Fact]
@@ -91,9 +96,9 @@ namespace TennisGameTest
         {
             GivenTennisGamePlayers();
             SetPlayerScore(4, 3);
-            ShouldScoreMeanigBe();
+            ShouldScoreMeaningBe();
 
-            Assert.Equal("PlayerOne Adv", ShouldScoreMeanigBe());
+            Assert.Equal("PlayerOne Adv", ShouldScoreMeaningBe());
         }
 
         [Fact]
@@ -101,9 +106,9 @@ namespace TennisGameTest
         {
             GivenTennisGamePlayers();
             SetPlayerScore(5,7);
-            ShouldScoreMeanigBe();
+            ShouldScoreMeaningBe();
 
-            Assert.Equal("PlayerTwo Win!", ShouldScoreMeanigBe());
+            Assert.Equal("PlayerTwo Win!", ShouldScoreMeaningBe());
         }
 
 
