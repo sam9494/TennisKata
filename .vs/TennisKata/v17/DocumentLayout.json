@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{F1712F11-0877-4B3D-8B3F-D71659AA7CC6}|TennisGameScoreTest\\TennisGameScoreTest.csproj|solutionrelative:tennisgamescoretest\\tennisscoretest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{F1712F11-0877-4B3D-8B3F-D71659AA7CC6}|TennisGameScoreTest\\TennisGameScoreTest.csproj|c:\\users\\bryant_lee\\desktop\\tenniskata\\tennisgamescoretest\\tennisgamescoretest.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{F1712F11-0877-4B3D-8B3F-D71659AA7CC6}|TennisGameScoreTest\\TennisGameScoreTest.csproj|solutionrelative:tennisgamescoretest\\tennisgamescoretest.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{DD662B63-10F7-41CC-946F-E95C522751D5}|TennisKata\\TennisKata.csproj|c:\\users\\bryant_lee\\desktop\\tenniskata\\tenniskata\\tennis.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DD662B63-10F7-41CC-946F-E95C522751D5}|TennisKata\\TennisKata.csproj|solutionrelative:tenniskata\\tennis.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -22,8 +26,25 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TennisGameScoreTest",
+              "DocumentMoniker": "C:\\Users\\bryant_lee\\Desktop\\TennisKata\\TennisGameScoreTest\\TennisGameScoreTest.csproj",
+              "RelativeDocumentMoniker": "TennisGameScoreTest\\TennisGameScoreTest.csproj",
+              "ToolTip": "C:\\Users\\bryant_lee\\Desktop\\TennisKata\\TennisGameScoreTest\\TennisGameScoreTest.csproj",
+              "RelativeToolTip": "TennisGameScoreTest\\TennisGameScoreTest.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-08-28T07:01:00.083Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -34,16 +55,16 @@
               "Title": "TennisScoreTest.cs",
               "DocumentMoniker": "C:\\Users\\bryant_lee\\Desktop\\TennisKata\\TennisGameScoreTest\\TennisScoreTest.cs",
               "RelativeDocumentMoniker": "TennisGameScoreTest\\TennisScoreTest.cs",
-              "ToolTip": "C:\\Users\\bryant_lee\\Desktop\\TennisKata\\TennisGameScoreTest\\TennisScoreTest.cs*",
-              "RelativeToolTip": "TennisGameScoreTest\\TennisScoreTest.cs*",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAcAAAAfAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\bryant_lee\\Desktop\\TennisKata\\TennisGameScoreTest\\TennisScoreTest.cs",
+              "RelativeToolTip": "TennisGameScoreTest\\TennisScoreTest.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAkwDUAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-26T09:07:11.632Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Tennis.cs",
               "DocumentMoniker": "C:\\Users\\bryant_lee\\Desktop\\TennisKata\\TennisKata\\Tennis.cs",
               "RelativeDocumentMoniker": "TennisKata\\Tennis.cs",
@@ -56,7 +77,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\bryant_lee\\Desktop\\TennisKata\\TennisKata\\Program.cs",
               "RelativeDocumentMoniker": "TennisKata\\Program.cs",
