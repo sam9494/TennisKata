@@ -5,7 +5,7 @@ namespace TennisTest;
 
 public class TennisTest()
 {
-    private readonly Tennis? _tennis = new ("Sam1", "Sam2");
+    private readonly Tennis _tennis = new ("Sam1", "Sam2");
     private string _actual = "";
 
     [Theory]
@@ -114,7 +114,7 @@ public class TennisTest()
 
     private void WhenGetScoreNameFromScoreMethod()
     {
-        _actual = _tennis?.Score()??"Please Check Is Tennis Init";
+        _actual = _tennis.Score();
     }
 
     private void GivenPlayerTwoScore(int opponentScore)
