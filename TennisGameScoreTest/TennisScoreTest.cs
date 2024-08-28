@@ -72,7 +72,7 @@ namespace TennisGameTest
         }
 
         [Fact]
-        public void ShouldBeDeuce_WhenBothPlayers_HittedThreePoints()
+        public void ShouldBeDeuce_SinceBothPlayers_HittedThreePoints_OrMore()
         {
             GivenTennisGamePlayers();
             SetPlayerScore(3, 3);
