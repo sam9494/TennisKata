@@ -36,7 +36,7 @@ namespace TennisGameTest
         }
 
         [Fact]
-        public void ShouldBeLoveAll_WhenBothPlayers_AreUnscored()
+        public void ShouldBeLoveAll_WhenGame_Initialized()
         {
             GivenTennisGamePlayers();
 

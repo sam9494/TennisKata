@@ -22,15 +22,13 @@ public class Tennis
         //4. 勝出時 輸出為 Player Name Win, 例：Sam Win
 
         //平手條件
-        if (_playerOneScore == _playerTwoScore)
+        if (SameScore())
         {
-            return _playerOneScore >= 3
-                ? "Deuce"
-                : $"{ScoreMeaning(_playerOneScore)} All";
+            DeuceOrAll();
         }
 
         //賽末點或贏家條件
-        if (_playerOneScore >= 4 || _playerTwoScore >= 4)
+        if (OneOfPlayers_ScoreMoreThanFour())
         {
             var scoreResult = _playerOneScore - _playerTwoScore;
 
@@ -48,10 +46,37 @@ public class Tennis
         }
 
         //未滿 4 分直接輸出比分條件
-        if (_playerOneScore < 4 && _playerTwoScore < 4)
-            return $"{ScoreMeaning(_playerOneScore)} {ScoreMeaning(_playerTwoScore)}";
+        if (BothPlayers_LessThanFourPoints())
+            return ScoreMeaning_Match();
 
         return "Love All";
+    }
+
+    private bool OneOfPlayers_ScoreMoreThanFour()
+    {
+        return _playerOneScore >= 4 || _playerTwoScore >= 4;
+    }
+
+    private bool SameScore()
+    {
+        return _playerOneScore == _playerTwoScore;
+    }
+
+    private string DeuceOrAll()
+    {
+        return _playerOneScore >= 3
+            ? "Deuce"
+            : $"{ScoreMeaning(_playerOneScore)} All";
+    }
+
+    private string ScoreMeaning_Match()
+    {
+        return $"{ScoreMeaning(_playerOneScore)} {ScoreMeaning(_playerTwoScore)}";
+    }
+
+    private bool BothPlayers_LessThanFourPoints()
+    {
+        return _playerOneScore < 4 && _playerTwoScore < 4;
     }
 
     public void PlayerOneScore()
