@@ -7,7 +7,13 @@ public class Tennis
     private int _playerOneScore;
     private int _playerTwoScore;
 
-
+    private readonly Dictionary<int, string> _scoreDic = new()
+    {
+        {0, "Love"},
+        {1, "Fifteen"},
+        {2, "Thirty"},
+        {3, "Forty"}
+    };
     public Tennis(string playerOneName, string playerTwoName)
     {
         _playerOneName = playerOneName;
@@ -15,44 +21,42 @@ public class Tennis
         _playerOneScore = 0;
         _playerTwoScore = 0;
     }
-
-    private readonly Dictionary<int, string> _scoreDic = new Dictionary<int, string>() {
-        { 0,"Love"},
-        { 1,"Fifteen"},
-        { 2,"Thirty"},
-        { 3,"Forty"}
-    };
-
     public string Score()
     {
+
         //1. 輸出必須為網球分數 例：1:0 => Fifteen Love 
         //2. 分數表達必須是文字例如Fifteen Forty 而非15：40 
         //3. 賽末點時 輸出為 Player Name Adv, 例：Sam Adv
         //4. 勝出時 輸出為 Player Name Win, 例：Sam Win
 
-
-        if (IsSameScore())
-        {
-            return IsBothMoreThanThreePoint() ? Deuce() : ScoreAll();
-        }
-
-        if (GetLeadingScore() >= 4)
-        {
-            var end = GetScoreGap() == 1 ? " Adv" : " Win";
-            return GetLeadingPlayerName() + end;
-        }
-
-        return GetNormalScoreDisplay();
+        //重構
+      return IsSameScore()? IsDeuce() ? Deuce() : SameScore() : 
+          IsGamePoint() ? IsWin() ? Win() : Adv() : NormalDisplayScore();
     }
 
-    private string GetNormalScoreDisplay()
+    private string Adv()
     {
-        return _scoreDic[_playerOneScore] + " " + _scoreDic[_playerTwoScore];
+        return $"{GetLeadPlayer()} Adv";
     }
 
-    private string ScoreAll()
+    private string Win()
     {
-        return _scoreDic[_playerOneScore] + " All";
+        return $"{GetLeadPlayer()} Win";
+    }
+
+    private bool IsWin()
+    {
+        return GetLeadScore() >= 2;
+    }
+
+    private string NormalDisplayScore()
+    {
+        return $"{_scoreDic[_playerOneScore]} {_scoreDic[_playerTwoScore]}";
+    }
+
+    private string SameScore()
+    {
+        return $"{_scoreDic[_playerOneScore]} All";
     }
 
     private static string Deuce()
@@ -60,24 +64,24 @@ public class Tennis
         return "Deuce";
     }
 
-    private string GetLeadingPlayerName()
+    private bool IsDeuce()
+    {
+        return _playerOneScore >= 3 && IsSameScore();
+    }
+
+    private string GetLeadPlayer()
     {
         return _playerOneScore > _playerTwoScore ? _playerOneName : _playerTwoName;
     }
 
-    private int GetLeadingScore()
+    private bool IsGamePoint()
     {
-        return _playerOneScore > _playerTwoScore ? _playerOneScore : _playerTwoScore;
+        return _playerOneScore >= 4 || _playerTwoScore >= 4;
     }
 
-    private int GetScoreGap()
+    private int GetLeadScore()
     {
         return Math.Abs(_playerOneScore - _playerTwoScore);
-    }
-
-    private bool IsBothMoreThanThreePoint()
-    {
-        return _playerOneScore >= 3 && _playerTwoScore >= 3;
     }
 
     private bool IsSameScore()
@@ -89,15 +93,10 @@ public class Tennis
     {
         _playerOneScore++;
     }
-
+    
     public void PlayerTwoScore()
     {
-        _playerTwoScore++;
+        _playerTwoScore++; 
     }
 
-    public void GiveScoreToPlayers(int givePlayerOneScore, int givePlayerTwoScore)
-    {
-        for (var i = 0; i < givePlayerOneScore; i++) { PlayerOneScore(); }
-        for (var i = 0; i < givePlayerTwoScore; i++) { PlayerTwoScore(); }
-    }
 }

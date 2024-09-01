@@ -4,10 +4,10 @@ namespace TestProject
 {
     public class TennisTest
     {
-        private readonly Tennis _tennis;
+        private readonly TennisByShon _tennis;
         public TennisTest()
         {
-            _tennis = new Tennis("Sam1", "Sam2");
+            _tennis = new TennisByShon("Sam1", "Sam2");
         }
 
         [Fact]
