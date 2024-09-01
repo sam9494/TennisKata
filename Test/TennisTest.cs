@@ -36,6 +36,13 @@ namespace TestProject
             _tennis.GiveScoreToPlayers(3, 0);
             Assert.Equal("Forty Love", _tennis.Score());
         }
+        
+        [Fact]
+        public void Score_Input_4_0_ReturnSam1Win()
+        {
+            _tennis.GiveScoreToPlayers(4, 0);
+            Assert.Equal("Sam1 Win", _tennis.Score());
+        }
 
         [Fact]
         public void Score_Input_0_1_ReturnLoveFifteen()
@@ -56,6 +63,13 @@ namespace TestProject
         {
             _tennis.GiveScoreToPlayers(0, 3);
             Assert.Equal("Love Forty", _tennis.Score());
+        }
+        
+        [Fact]
+        public void Score_Input_0_4_ReturnSam2Win()
+        {
+            _tennis.GiveScoreToPlayers(0, 4);
+            Assert.Equal("Sam2 Win", _tennis.Score());
         }
 
         [Fact]
@@ -108,6 +122,13 @@ namespace TestProject
         }
 
         //保險加測
+        
+        [Fact]
+        public void Score_Input_100_98_ReturnSam1Win()
+        {
+            _tennis.GiveScoreToPlayers(100, 98);
+            Assert.Equal("Sam1 Win", _tennis.Score());
+        }
 
         #region additionalTest
 
