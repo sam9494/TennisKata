@@ -14,6 +14,7 @@ public class Tennis
         _playerOneScore = 0;
         _playerTwoScore = 0;
     }
+
     public string Score()
     {
         //1. 輸出必須為網球分數 例：1:0 => Fifteen Love
@@ -22,9 +23,11 @@ public class Tennis
         //4. 勝出時 輸出為 Player Name Win, 例：Sam Win
 
         //平手條件
-        if (SameScore())
+        if (_playerOneScore == _playerTwoScore)
         {
-            DeuceOrAll();
+            return _playerOneScore >= 3
+            ? "Deuce"
+            : $"{ScoreMeaning(_playerOneScore)} All";
         }
 
         //賽末點或贏家條件
@@ -52,33 +55,6 @@ public class Tennis
         return "Love All";
     }
 
-    private bool OneOfPlayers_ScoreMoreThanFour()
-    {
-        return _playerOneScore >= 4 || _playerTwoScore >= 4;
-    }
-
-    private bool SameScore()
-    {
-        return _playerOneScore == _playerTwoScore;
-    }
-
-    private string DeuceOrAll()
-    {
-        return _playerOneScore >= 3
-            ? "Deuce"
-            : $"{ScoreMeaning(_playerOneScore)} All";
-    }
-
-    private string ScoreMeaning_Match()
-    {
-        return $"{ScoreMeaning(_playerOneScore)} {ScoreMeaning(_playerTwoScore)}";
-    }
-
-    private bool BothPlayers_LessThanFourPoints()
-    {
-        return _playerOneScore < 4 && _playerTwoScore < 4;
-    }
-
     public void PlayerOneScore()
     {
         _playerOneScore++;
@@ -89,7 +65,7 @@ public class Tennis
         _playerTwoScore++;
     }
 
-    public string ScoreMeaning(int score)
+    public static string ScoreMeaning(int score)
     {
         return score switch
         {
@@ -99,6 +75,21 @@ public class Tennis
             3 => "Forty",
             _ => score.ToString()
         };
+    }
+
+    private bool OneOfPlayers_ScoreMoreThanFour()
+    {
+        return _playerOneScore >= 4 || _playerTwoScore >= 4;
+    }
+
+    private string ScoreMeaning_Match()
+    {
+        return $"{ScoreMeaning(_playerOneScore)} {ScoreMeaning(_playerTwoScore)}";
+    }
+
+    private bool BothPlayers_LessThanFourPoints()
+    {
+        return _playerOneScore < 4 && _playerTwoScore < 4;
     }
 
 }

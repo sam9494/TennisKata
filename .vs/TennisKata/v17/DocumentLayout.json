@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\bryant_lee\\Desktop\\Tennis Kata\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{DD662B63-10F7-41CC-946F-E95C522751D5}|TennisKata\\TennisKata.csproj|c:\\users\\bryant_lee\\desktop\\tennis kata\\tenniskata\\tennis.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DD662B63-10F7-41CC-946F-E95C522751D5}|TennisKata\\TennisKata.csproj|solutionrelative:tenniskata\\tennis.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F1712F11-0877-4B3D-8B3F-D71659AA7CC6}|TennisGameScoreTest\\TennisGameScoreTest.csproj|c:\\users\\bryant_lee\\desktop\\tennis kata\\tennisgamescoretest\\tennisscoretest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F1712F11-0877-4B3D-8B3F-D71659AA7CC6}|TennisGameScoreTest\\TennisGameScoreTest.csproj|solutionrelative:tennisgamescoretest\\tennisscoretest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -27,15 +31,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Tennis.cs",
+              "DocumentMoniker": "C:\\Users\\bryant_lee\\Desktop\\Tennis Kata\\TennisKata\\Tennis.cs",
+              "RelativeDocumentMoniker": "TennisKata\\Tennis.cs",
+              "ToolTip": "C:\\Users\\bryant_lee\\Desktop\\Tennis Kata\\TennisKata\\Tennis.cs",
+              "RelativeToolTip": "TennisKata\\Tennis.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-29T03:08:37.199Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "TennisScoreTest.cs",
               "DocumentMoniker": "C:\\Users\\bryant_lee\\Desktop\\Tennis Kata\\TennisGameScoreTest\\TennisScoreTest.cs",
               "RelativeDocumentMoniker": "TennisGameScoreTest\\TennisScoreTest.cs",
               "ToolTip": "C:\\Users\\bryant_lee\\Desktop\\Tennis Kata\\TennisGameScoreTest\\TennisScoreTest.cs",
               "RelativeToolTip": "TennisGameScoreTest\\TennisScoreTest.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAUwCIAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGIAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-29T01:36:21.009Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-29T01:36:21.009Z"
             }
           ]
         }

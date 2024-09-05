@@ -5,10 +5,6 @@ namespace TennisGameTest
 {
     public class TennisGameTest
     {
-        public TennisGameTest()
-        {
-            _tennis = new Tennis("PlayerOne", "PlayerTwo");
-        }
 
         private void GivenTennisGamePlayers(string playerOneName = "PlayerOne", string playerTwoName = "PlayerTwo")
         {
@@ -34,6 +30,7 @@ namespace TennisGameTest
                 _tennis.PlayerTwoScore();
             }
         }
+
 
         [Fact]
         public void ShouldBeLoveAll_WhenGame_Initialized()
